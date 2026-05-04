@@ -4,6 +4,17 @@
 
 Tienda de cartas coleccionables de Pokémon con integración de pagos vía PayPal Sandbox.
 
+## Funcionalidades
+
+- Visualización dinámica de 30+ cartas Pokémon consumidas desde PokéAPI
+- Filtro por tipo de Pokémon
+- Búsqueda por nombre
+- Modal de detalle con estadísticas
+- Simulación de compra mediante PayPal Sandbox
+- Persistencia de cartas adquiridas con LocalStorage
+- Vista de colección personal
+- Contador de progreso de colección
+  
 ---
 
 ## Instrucciones de ejecución
