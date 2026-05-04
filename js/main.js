@@ -1,8 +1,11 @@
 // IDs de los 30 Pokémon que vamos a mostrar
 const POKEMON_IDS = [
-  1,4,7,25,39,52,54,63,66,74,
-  79,81,92,94,104,116,131,133,143,147,
-  152,155,158,175,196,197,243,244,245,249
+  1,4,133,35,172,
+  173,174,175,183,196,
+  197,280,282,300,359,
+  403,448,470,471,700,
+  702,778,906,909,912,
+  926,927,978,999,1000
 ];
 
 // Precio según el tipo de Pokémon
@@ -132,6 +135,7 @@ function renderGrid() {
     const el      = document.createElement('div');
     el.className  = `poke-card ${isOwned ? 'owned' : 'locked'}`;
     el.innerHTML  = `
+      <span class="card-number">#${String(card.id).padStart(3,'0')}</span>
       ${isOwned ? '<span class="owned-badge">✓ Tuya</span>' : ''}
       <div class="card-img-wrap">
         <img src="${card.img}" alt="${card.name}" loading="lazy"/>
@@ -283,14 +287,17 @@ function showToast(msg, type) {
 }
 
 function updateOwnedCount() {
-  const totalCards = POKEMON_IDS.length;
-  const ownedTotal = ownedIds.size;
+  document.getElementById('owned-count').textContent = ownedIds.size;
 
-  // badge en pestaña "Mi colección"
-  document.getElementById('owned-count').textContent = ownedTotal;
-
-  // contador arriba tipo 0/30
-  document.getElementById('cart-count').textContent = `${ownedTotal}/${totalCards}`;
+  let counter = document.getElementById('cart-counter');
+  if (!counter) {
+    counter = document.createElement('div');
+    counter.id = 'cart-counter';
+    counter.className = 'cart-counter';
+    counter.onclick = () => showTab('mypurchases');
+    document.body.appendChild(counter);
+  }
+  counter.innerHTML = `⚡ <span>${ownedIds.size}</span> / ${allCards.length} cartas`;
 }
 
 // Cambia entre la vista de Mercado y Mis Compras
@@ -353,3 +360,23 @@ function renderPurchases() {
 
 // Arranca la app
 loadCards();
+
+// Partículas flotantes del fondo
+function createParticles() {
+  const colors = ['rgba(232,57,154,0.5)', 'rgba(255,209,102,0.4)', 'rgba(200,100,255,0.4)'];
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random() * 5 + 2;
+    p.style.cssText = `
+      width: ${size}px;
+      height: ${size}px;
+      left: ${Math.random() * 100}vw;
+      background: ${colors[Math.floor(Math.random() * colors.length)]};
+      animation-duration: ${Math.random() * 15 + 10}s;
+      animation-delay: ${Math.random() * 10}s;
+    `;
+    document.body.appendChild(p);
+  }
+}
+createParticles();
