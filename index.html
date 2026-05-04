@@ -4,19 +4,36 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>PokéCards Market</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23ef4444' stroke='%23f59e0b' stroke-width='4'/><path d='M2 50 A48 48 0 0 0 98 50' fill='%23fef3c7'/><line x1='2' y1='50' x2='98' y2='50' stroke='%23f59e0b' stroke-width='4'/><circle cx='50' cy='50' r='14' fill='%231a0f00' stroke='%23f59e0b' stroke-width='4'/><circle cx='50' cy='50' r='7' fill='%23f59e0b'/></svg>">
     <link rel="stylesheet" href="css/style.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"/>
-    <script src="https://www.paypal.com/sdk/js?client-id=TU_CLIENT_ID&currency=USD"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AWsZBfZ8z8G-6QLOEbgqVFq-xzlha6jUoTLat239uN1D4u8TmZ408Ckiy_zhMdPmALXbt31pTsohh7qb&currency=USD"></script>
 </head>
 <body>
+    <!-- CONTADOR  -->
+    <div class="cart-counter" onclick="showTab('mypurchases')">
+        <span>⚡</span>
+        <span id="cart-count">0/30</span>
+    </div>
+
     <div class="app">
         <header class="header">
-            <h1>⚡ PokéCards Market</h1>
-            <p>Descubrí y coleccioná increíbles cartas de Pokémon</p>
+            <div class="header-logo">
+                <svg viewBox="0 0 100 100" width="60" height="60" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="48" fill="none" stroke="#f59e0b" stroke-width="4"/>
+                    <path d="M2 50 Q50 50 98 50" stroke="#f59e0b" stroke-width="4" fill="none"/>
+                    <path d="M2 50 A48 48 0 0 1 98 50" fill="#ef4444"/>
+                    <path d="M2 50 A48 48 0 0 0 98 50" fill="#fef3c7"/>
+                    <circle cx="50" cy="50" r="14" fill="#1a0f00" stroke="#f59e0b" stroke-width="4"/>
+                    <circle cx="50" cy="50" r="7" fill="#f59e0b"/>
+                </svg>
+            </div>
+            <h1> PokéDex Market</h1>
+            <p> Coleccioná, desbloqueá y dominá el mundo Pokémon</p>
             <div class="tabs">
-                <div class="tab tab-active" id="tab-market" onclick="showTab('market')">🛒 Mercado</div>
+                <div class="tab tab-active" id="tab-market" onclick="showTab('market')"> Tienda</div>
                 <div class="tab" id="tab-mypurchases" onclick="showTab('mypurchases')">
-                    📋 Mis compras <span class="badge" id="owned-count">0</span>
+                     Mi colección <span class="badge" id="owned-count">0</span>
                 </div>
             </div>
         </header>
@@ -26,7 +43,7 @@
             <div class="filters" id="filters-wrap">
                 <button class="filter-btn active" onclick="filterType('all', this)">Todos</button>
                 <div class="search-wrap">
-                    <input type="text" id="search-input" placeholder="🔍 Buscar Pokémon..." oninput="filterSearch(this.value)"/>
+                    <input type="text" id="search-input" placeholder=" Buscar Pokémon..." oninput="filterSearch(this.value)"/>
                 </div>
             </div>
             <div id="market-loader" class="loader-wrap">
@@ -57,7 +74,25 @@
     </div>
 
     <footer class="footer">
-        <p>PokéCards Market | Desarrollo Web 2025</p>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="footer-logo">⚡</span>
+                <span>PokéDex Market</span>
+            </div>
+
+            <p class="footer-text">
+                Colecciona cartas Pokémon exclusivas y completa tu Pokédex.
+            </p>
+
+            <p class="footer-api">
+                Data powered by 
+                <a href="https://pokeapi.co/" target="_blank">PokéAPI</a>
+            </p>
+
+            <p class="footer-copy">
+                © 2026 PokéDex Market • Desarrollo Web
+            </p>
+        </div>
     </footer>
 
     <script src="js/main.js"></script>

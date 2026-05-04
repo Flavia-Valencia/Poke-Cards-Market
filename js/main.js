@@ -283,7 +283,14 @@ function showToast(msg, type) {
 }
 
 function updateOwnedCount() {
-  document.getElementById('owned-count').textContent = ownedIds.size;
+  const totalCards = POKEMON_IDS.length;
+  const ownedTotal = ownedIds.size;
+
+  // badge en pestaña "Mi colección"
+  document.getElementById('owned-count').textContent = ownedTotal;
+
+  // contador arriba tipo 0/30
+  document.getElementById('cart-count').textContent = `${ownedTotal}/${totalCards}`;
 }
 
 // Cambia entre la vista de Mercado y Mis Compras
